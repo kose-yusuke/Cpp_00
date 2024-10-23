@@ -17,7 +17,7 @@ secrets.txt
 *.class
 a.out
 mock
-test
+
 
 # Generated documentation
 docs/
@@ -31,7 +31,6 @@ markdown/
 temporary/
 xv6-public/
 sandbox/
-test*
 file*
 tmp*
 
