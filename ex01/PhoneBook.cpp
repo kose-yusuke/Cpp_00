@@ -6,7 +6,7 @@
 /*   By: koseki.yusuke <koseki.yusuke@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 21:08:05 by koseki.yusu       #+#    #+#             */
-/*   Updated: 2024/08/31 21:13:37 by koseki.yusu      ###   ########.fr       */
+/*   Updated: 2024/10/23 16:44:05 by koseki.yusu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ void PhoneBook::searchContact() const {
         contacts[i].displayShort(i);
     int index;
     std::cout << "please input contact: ";
-    std::cin >> index;
+    if (!(std::cin >> index)) {
+        std::cin.clear();
+        std::cin.ignore(1024, '\n');
+        index = -1;
+    }
     if (index >= 0 && index < count)
         contacts[index].displayFull();
     else

@@ -6,7 +6,7 @@
 /*   By: koseki.yusuke <koseki.yusuke@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 20:39:54 by koseki.yusu       #+#    #+#             */
-/*   Updated: 2024/08/31 21:13:53 by koseki.yusu      ###   ########.fr       */
+/*   Updated: 2024/10/23 16:59:40 by koseki.yusu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,32 @@ int main() {
             Contact newContact;
             std::string input;
 
-            std::cout << "first name: ";
+            std::cout << "first name (required): ";
             std::cin >> input;
             std::string firstName = input;
 
-            std::cout << "last name: ";
+            std::cout << "last name (required): ";
             std::cin >> input;
             std::string lastName = input;
 
-            std::cout << "nickname: ";
+            std::cout << "nickname (required): ";
             std::cin >> input;
             std::string nickname = input;
 
-            std::cout << "tell number: ";
+            std::cout << "tell number (required): ";
             std::cin >> input;
             std::string phoneNumber = input;
-
-            std::cout << "darkest secret: ";
+            for (size_t i = 0; i < phoneNumber.size(); ++i) {
+                char& c = phoneNumber[i];
+                while (!isdigit(c) && c != '-') {
+                    std::cout << "only number or hyphen" << std::endl;
+                    std::cin.clear();
+                    std::cin.ignore(1024, '\n');
+                    std::cin >> input;
+                    phoneNumber = input;
+                }
+            }
+            std::cout << "darkest secret (required): ";
             std::cin >> input;
             std::string darkestSecret = input;
 
